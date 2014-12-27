@@ -6,43 +6,30 @@
 
 
     <TextView
-            android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:gravity="center"
-            android:id="@+id/bluetooth_status"
-            android:layout_marginBottom="10dp"/>
-
-    <Button
-            android:layout_width="173dp"
             android:layout_height="wrap_content"
-            android:text="@string/connect"
+            android:text="@string/bluetoothStatusView"
+            android:id="@+id/bluetoothStatusView"
+            android:gravity="center"
             android:layout_marginBottom="10dp"
-            android:id="@+id/connectButton" android:layout_gravity="center_horizontal" android:layout_weight="0.05"
-            android:onClick="connectButtonHandler"
+            android:layout_marginTop="10dp"
             />
     <Button
-            android:layout_width="173dp"
+            android:id="@+id/connectBluetoothButton"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/disconnect"
+            android:text="@string/connectButton"
             android:layout_marginBottom="10dp"
-            android:id="@+id/disconnectButton" android:layout_gravity="center_horizontal" android:layout_weight="0.05"
-            android:onClick="disconnectButtonHandler"/>
+            android:onClick="connectBluetoothHandler"
+            />
 
     <Button
-            android:layout_width="173dp"
+            android:id="@+id/findDevicesButton"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/showPairedDevices"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/showPairedDevicesButton" android:layout_gravity="center_horizontal" android:layout_weight="0.05"
-            android:onClick="showPairedDevicesButtonHandler"/>
-
-    <Button
-            android:layout_width="173dp"
-            android:layout_height="wrap_content"
-            android:text="@string/searchNewDevices"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/searchNewDevicesButton" android:layout_gravity="center_horizontal" android:layout_weight="0.05"
-            android:onClick="searchNewDevicesButtonHandler"/>
+            android:text="@string/findDevicesButton"
+            android:onClick="findDevicesHandler"
+            />
 
 
 
