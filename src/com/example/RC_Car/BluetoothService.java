@@ -48,7 +48,7 @@ public class BluetoothService implements Serializable {
     }
 
 
-    private class ConnectThread extends Thread implements Serializable {
+    private class ConnectThread extends Thread  {
         private final BluetoothSocket socket;
 
         public ConnectThread(BluetoothDevice bluetoothDevice) {
@@ -89,7 +89,7 @@ public class BluetoothService implements Serializable {
     }
 
 
-    private class ConnectedThread extends Thread implements Serializable {
+    private class ConnectedThread extends Thread  {
         private final BluetoothSocket bluetoothSocket;
 
         private final OutputStream outputStream;
