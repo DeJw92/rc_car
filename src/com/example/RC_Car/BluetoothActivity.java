@@ -15,11 +15,16 @@ import android.widget.Toast;
 public class BluetoothActivity extends Activity {
 
     private static final int REQUEST_ENABLE_BT = 1;
+
+    private static final int REQUEST_CHOOSE_DEVICE = 2;
+
     private Button connectButton;
 
     private TextView bluetoothStatusView;
 
     private BluetoothAdapter bluetoothAdapter;
+
+    public static BluetoothService bluetoothService; // TODO : it shouldn't be public static
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class BluetoothActivity extends Activity {
         initializeComponents();
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         setBluetoothStatus();
+        bluetoothService = new BluetoothService();
     }
 
     private void initializeComponents() {
@@ -53,8 +59,20 @@ public class BluetoothActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_ENABLE_BT) {
             setBluetoothStatus();
+        } else if(requestCode == REQUEST_CHOOSE_DEVICE) {
+            if(resultCode == Activity.RESULT_OK) {
+                String address = data.getExtras().getString(AvailableDevicesListActivity.BLUETOOTH_ADDRESS);
+                bluetoothService.connect(address);
+                while(bluetoothService.getState() != State.CONNECTED) {
+
+                }
+                Intent intent = new Intent(this, Test.class);
+                startActivity(intent);
+
+            }
         }
     }
+
 
     private void setBluetoothStatus() {
         if(bluetoothAdapter.isEnabled()) {
@@ -70,7 +88,10 @@ public class BluetoothActivity extends Activity {
             Toast.makeText(getApplicationContext(), R.string.bluetoothShouldBeEnabled, Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(this, AvailableDevicesListActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CHOOSE_DEVICE);
         }
     }
+
+
+
 }

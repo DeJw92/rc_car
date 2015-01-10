@@ -8,9 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,6 +31,8 @@ public class AvailableDevicesListActivity extends Activity {
 
     private ListView newDevices;
 
+    static String BLUETOOTH_ADDRESS = "bluetooth_address";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,7 @@ public class AvailableDevicesListActivity extends Activity {
         setContentView(R.layout.devices_list);
         initializeComponents();
 
+        newDevices.setOnItemClickListener(deviceClickListener);
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         this.registerReceiver(broadcastReceiver, filter);
         filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
@@ -89,6 +95,23 @@ public class AvailableDevicesListActivity extends Activity {
         }
         this.unregisterReceiver(broadcastReceiver);
     }
+
+    private AdapterView.OnItemClickListener deviceClickListener = new AdapterView.OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            bluetoothAdapter.cancelDiscovery();
+            String info = ((TextView) view).getText().toString();
+            String address = info.substring(info.length() - 17);
+
+            Intent intent = new Intent();
+            intent.putExtra(BLUETOOTH_ADDRESS, address);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+
+
+        }
+    };
 
 
 }
