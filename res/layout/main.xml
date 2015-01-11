@@ -29,15 +29,15 @@
             android:layout_height="wrap_content"
             android:text="@string/findDevicesButton"
             android:onClick="findDevicesHandler"
-            />
+            android:layout_marginBottom="10dp"/>
 
 
 
     <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Ride car"
-            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="setListFooter"
-            android:nestedScrollingEnabled="true"/>
+            android:text="@string/rideCarButton"
+            android:id="@+id/rideCarButton" android:layout_gravity="center_horizontal" android:onClick="startRideCarActivity"
+            android:nestedScrollingEnabled="true" android:layout_marginBottom="10dp"/>
 </LinearLayout>
 

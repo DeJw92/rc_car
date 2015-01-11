@@ -1,16 +1,15 @@
 package com.example.RC_Car;
 
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 
 /**
  * Created by mikolaj on 05.01.15.
  */
-public class CarHandler implements ICarHandler{
+public class ControlsHandler implements IControlsHandler {
     private ProgressBar directionSeekBar;
     private ProgressBar speedSeekBar;
 
-    public CarHandler(ProgressBar dirSeekBar, ProgressBar speedSeekBar) {
+    public ControlsHandler(ProgressBar dirSeekBar, ProgressBar speedSeekBar) {
         this.directionSeekBar = dirSeekBar;
         this.speedSeekBar = speedSeekBar;
     }

@@ -8,12 +8,13 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent" android:layout_weight="1" android:gravity="center_horizontal">
+            android:layout_height="fill_parent" android:layout_weight="1" android:gravity="center_horizontal"
+            android:padding="10dp">
         <android.widget.VerticalControlBar
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/velocityBar"
-                android:layout_weight="1"
+                android:layout_weight="0.21"
                 android:max="100"
                 android:progress="50"
                 android:thumbOffset="5dp"

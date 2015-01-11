@@ -93,5 +93,8 @@ public class BluetoothActivity extends Activity {
     }
 
 
-
+    public void startRideCarActivity(View view) {
+        Intent intent = new Intent(this, CarControlActivity.class);
+        startActivity(intent);
+    }
 }
