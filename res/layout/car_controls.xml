@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/OuterLayout" android:baselineAligned="false">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent" android:layout_weight="1" android:gravity="center_horizontal">
+        <android.widget.VerticalControlBar
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/velocityBar"
+                android:layout_weight="1"
+                android:max="100"
+                android:progress="50"
+                android:thumbOffset="5dp"
+                android:background="@drawable/control_bar"
+                android:thumb="@drawable/slider"
+                />
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent" android:layout_weight="1" android:gravity="center_horizontal">
+        <android.widget.ControlBar
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/directionBar"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="50"
+                android:layout_margin="10dp"
+                android:thumbOffset="5dp"
+                android:background="@drawable/control_bar"
+                android:thumb="@drawable/slider"/>
+    </LinearLayout>
+</LinearLayout>

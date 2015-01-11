@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <nine-patch android:src="@drawable/seekbar_border"
+                    android:dither="false"
+                />
+    </item>
+    <item>
+        <clip>
+            <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:src="@drawable/inner_bg"
+                    android:tileMode="repeat"
+                    android:dither="false"
+                    android:filter="false"
+                    android:gravity="left"/>
+        </clip>
+    </item>
+</layer-list>
