@@ -25,15 +25,19 @@ public class CarDriver implements Runnable {
 
     @Override
     public void run() {
+        byte lastSpeed = 0;
+        byte lastDirection = 0;
         while(true) {
             if(!paused) {
-                service.sendMessage(prepareMessage());
 
-                try {
-                    Thread.sleep(sleepTime);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(((byte) controlsHandler.getSpeed()) != lastSpeed || ((byte) controlsHandler.getDirection()) != lastDirection) {
+                    lastSpeed = (byte)controlsHandler.getSpeed();
+                    lastDirection = (byte) controlsHandler.getDirection();
+                    System.out.println("Speed: "+lastSpeed);
+                    System.out.println("Direction: "+lastDirection);
+                    service.sendMessage(new byte[] {lastSpeed, lastDirection});
                 }
+
             }
             else {
 

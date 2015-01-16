@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
  * @author Mikołaj
  */
 public class CarControlActivity extends Activity {
-    private IMessageService messageService;
+//    private IMessageService messageService;
     private CarDriver carDriver;
     private int messagesPerSecond = 5;
 
@@ -21,7 +21,7 @@ public class CarControlActivity extends Activity {
         ProgressBar velocityBar = (ProgressBar) findViewById(R.id.velocityBar);
 
         IControlsHandler controlsHandler = new ControlsHandler(directionBar, velocityBar);
-        messageService = new BluetoothService();
+        BluetoothService messageService = BluetoothActivity.bluetoothService;
         carDriver = new CarDriver(messageService, controlsHandler, messagesPerSecond);
         new Thread(carDriver).start();
     }

@@ -14,26 +14,20 @@ public class ControlsHandler implements IControlsHandler {
         this.speedSeekBar = speedSeekBar;
     }
 
-    private double percentageExporter(ProgressBar progressBar) {
-        int progress = progressBar.getProgress();
-        int max = progressBar.getMax();
-        double half = max / 2.0;
-        return ((progress - half) / max) * 100;
+    /**
+     * @return -50 = full speed backwards, 0 = stop, 50 = full speed forward
+     */
+    @Override
+    public int getSpeed() {
+        return speedSeekBar.getProgress();
     }
 
     /**
-     * @return -100 = full speed backwards, 0 = stop, 100 = full speed forward
+     * @return -50 = maximum left, 0 = straight, 50 = maximum right
      */
     @Override
-    public double getSpeed() {
-        return percentageExporter(speedSeekBar);
+    public int getDirection() {
+        return directionSeekBar.getProgress();
     }
 
-    /**
-     * @return -100 = maximum left, 0 = straight, 100 = maximum right
-     */
-    @Override
-    public double getDirection() {
-        return percentageExporter(directionSeekBar);
-    }
 }

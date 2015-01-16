@@ -66,8 +66,7 @@ public class BluetoothActivity extends Activity {
                 while(bluetoothService.getState() != State.CONNECTED) {
 
                 }
-                Intent intent = new Intent(this, Test.class);
-                startActivity(intent);
+                startRideCarActivity();
 
             }
         }
@@ -93,7 +92,7 @@ public class BluetoothActivity extends Activity {
     }
 
 
-    public void startRideCarActivity(View view) {
+    public void startRideCarActivity() {
         Intent intent = new Intent(this, CarControlActivity.class);
         startActivity(intent);
     }

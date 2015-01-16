@@ -35,9 +35,9 @@ public class BluetoothService implements Serializable, IMessageService {
     }
 
     @Override
-    public void sendMessage(String message) {
+    public void sendMessage(byte [] bytes) {
         if(connectedThread != null) {
-            connectedThread.write(message.getBytes());
+            connectedThread.write(bytes);
         }
     }
 
