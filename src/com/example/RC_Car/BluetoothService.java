@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  * Created by Dawid Pawlak.
  */
-public class BluetoothService implements Serializable {
+public class BluetoothService implements Serializable, IMessageService {
 
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 
@@ -34,9 +34,10 @@ public class BluetoothService implements Serializable {
 
     }
 
-    public void sendMessage(String message) {
+    @Override
+    public void sendMessage(byte [] bytes) {
         if(connectedThread != null) {
-            connectedThread.write(message.getBytes());
+            connectedThread.write(bytes);
         }
     }
 

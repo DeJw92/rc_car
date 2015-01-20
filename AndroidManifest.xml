@@ -3,7 +3,7 @@
           package="com.example.RC_Car"
           android:versionCode="1"
           android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="15"/>
+    <uses-sdk android:minSdkVersion="10"/>
 
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -18,7 +18,9 @@
         <activity android:name=".AvailableDevicesListActivity"
                   android:label="@string/listOfAvailableDevices"/>
 
-        <activity android:name=".Test"/>
 
+        <activity android:name=".CarControlActivity"
+                  android:screenOrientation="landscape">
+        </activity>
     </application>
 </manifest>
